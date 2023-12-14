@@ -87,14 +87,10 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
       const prevMirror = findReflection();
       const originalArr = JSON.stringify(currArr);
       let escape = false;
-      console.log("******************** NEW BLOCK ******************** ");
       for (let i = 0; i < currArr.length && !escape; i++) {
         for (let j = 0; j < currArr[0].length && !escape; j++) {
           currArr[i][j] = currArr[i][j] === "#" ? "." : "#";
-          const potential = findReflection();
-          console.log("prevMirror", prevMirror);
-          console.log("potential", potential);
-          console.log("===");
+          const potential = findReflection(prevMirror);
           if (
             potential.vertical &&
             prevMirror.vertical !== potential.vertical
@@ -121,7 +117,7 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
     currArr.push(lineArr);
   });
 
-  function findReflection() {
+  function findReflection(prevMirror) {
     const table = JSON.parse(JSON.stringify(currArr));
     width = table[0].length;
     height = table.length;
@@ -149,16 +145,15 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
     }
 
     const horizontalMirrors = [];
+    // find horizontal ones
     for (let i = 1; i < height; i++) {
       const top = table
         .slice(0, i)
         .reverse()
         .map((line) => line.join(""));
       const bottom = table.slice(i).map((line) => line.join(""));
-
       let k = 0;
       while (top[k] && bottom[k] && top[k] === bottom[k]) {
-        console.log(k, "HI", top[k], " | ", bottom[k]);
         k++;
       }
       if (k === Math.min(top.length, bottom.length)) {
@@ -166,16 +161,15 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
       }
     }
     const returnObj = {};
-    // console.log("verticalMirrors", verticalMirrors);
-    // console.log("horizontalMirrors", horizontalMirrors);
-    // console.log("=======");
 
     verticalMirrors.forEach((col) => {
-      returnObj.vertical = col;
+      if (!prevMirror) returnObj.vertical = col;
+      else if (prevMirror.vertical !== col) returnObj.vertical = col;
     });
 
     horizontalMirrors.forEach((row) => {
-      returnObj.horizontal = row;
+      if (!prevMirror) returnObj.horizontal = row;
+      else if (prevMirror.horizontal !== row) returnObj.horizontal = row;
     });
     return returnObj;
   }
@@ -183,6 +177,3 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
   console.log(result);
   return result;
 })(input);
-// 29272 too low
-// 29472 too low
-// 58140 too high
