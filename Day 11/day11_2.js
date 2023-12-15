@@ -44,7 +44,6 @@ const input = fs.readFileSync("inputs/day11_input.txt", "utf8");
     let currRow = emptyRows.pop();
     map.splice(currRow, 0, new Array(width + emptyColsCopy).fill("."));
   }
-  console.log(map.map((line) => line.join("")).join("\n"));
 
   const galaxyArr = [];
 
@@ -74,7 +73,7 @@ const input = fs.readFileSync("inputs/day11_input.txt", "utf8");
   return result;
 })(input);
 
-(function solution1(input) {
+(function solution2(input) {
   const lines = input.split("\n");
   let result = 0;
 
