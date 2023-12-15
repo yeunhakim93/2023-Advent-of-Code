@@ -21,7 +21,6 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
             prevMirror.vertical !== potential.vertical
           ) {
             result += potential.vertical;
-            // console.log("vertical", potential.vertical);
             escape = true;
           }
           if (
@@ -29,7 +28,6 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
             prevMirror.horizontal !== potential.horizontal
           ) {
             result += potential.horizontal * 100;
-            // console.log("horizontal", potential.horizontal);
             escape = true;
           }
           currArr = JSON.parse(originalArr);

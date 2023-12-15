@@ -21,6 +21,7 @@ const input = fs.readFileSync("inputs/day4_input.txt", "utf8");
     });
     result += point;
   });
+  console.log("====");
   console.log(result);
   return result;
 })(input);

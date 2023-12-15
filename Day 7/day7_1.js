@@ -63,10 +63,8 @@ const strengthObj = {
         else if (strengthObj[a[i]] < strengthObj[b[i]]) return -1;
       }
     });
-    console.log("====", key, "====");
     sixTypes[key].forEach((cardStr) => {
       result += mapBid[cardStr] * rank;
-      console.log(cardStr, rank, mapBid[cardStr], mapBid[cardStr] * rank);
       rank++;
     });
   }

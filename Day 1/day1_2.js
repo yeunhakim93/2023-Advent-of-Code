@@ -25,6 +25,7 @@ let keys = new RegExp(Object.keys(REPLACE).join("|"), "gm");
     const firstLast = line[0] + line[line.length - 1];
     result += parseInt(firstLast);
   });
-  console.log("solution 2", result);
+  console.log("=====");
+  console.log(result);
   return result;
 })(input);

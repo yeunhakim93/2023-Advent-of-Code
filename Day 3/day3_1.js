@@ -27,38 +27,30 @@ const isSymbol = (char) => {
 
     for (let j = 0; j < mat[0].length; j++) {
       const currChar = mat[i][j];
-      // console.log(currChar);
       if (isNumber[currChar]) {
         part += currChar;
         if (i > 0 && isSymbol(mat[i - 1][j])) {
-          console.log("up", mat[i - 1][j]);
           isValid = true;
         }
         if (j > 0 && isSymbol(mat[i][j - 1])) {
-          console.log("left", mat[i][j - 1]);
           isValid = true;
         }
         if (i < mat.length - 1 && isSymbol(mat[i + 1][j])) {
-          console.log("down", mat[i + 1][j]);
           isValid = true;
         }
         if (j < mat[0].length - 1 && isSymbol(mat[i][j + 1])) {
-          console.log("right", mat[i][j + 1]);
           isValid = true;
         }
 
         if (i > 0 && j > 0 && isSymbol(mat[i - 1][j - 1])) {
-          console.log("up left", mat[i - 1][j - 1]);
           isValid = true;
         }
 
         if (i > 0 && j < mat[0].length - 1 && isSymbol(mat[i - 1][j + 1])) {
-          console.log("up right", mat[i - 1][j + 1]);
           isValid = true;
         }
 
         if (i < mat.length - 1 && j > 0 && isSymbol(mat[i + 1][j - 1])) {
-          console.log("down left", mat[i + 1][j - 1]);
           isValid = true;
         }
 
@@ -67,23 +59,21 @@ const isSymbol = (char) => {
           j < mat[0].length - 1 &&
           isSymbol(mat[i + 1][j + 1])
         ) {
-          console.log("down right", mat[i + 1][j + 1]);
           isValid = true;
         }
       }
 
       if (!isNumber[currChar] || j === mat[0].length - 1) {
-        // console.log("hi", part);
+        // ("hi", part);
         if (isValid) {
-          console.log("part!!!", part);
           result += parseInt(part);
           isValid = false;
         }
         part = "";
       }
-      // console.log(part, currChar, isSymbol(currChar), j, mat[0].length - 1);
     }
   }
+  console.log("====");
   console.log(result);
   return result;
 })(input);

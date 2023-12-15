@@ -15,9 +15,6 @@ const isNumberObj = {
 };
 
 const isNumber = (char) => isNumberObj[char];
-const isSymbol = (char) => {
-  return char !== "." && !isNumber[char] && char !== undefined;
-};
 
 (function solution(input) {
   const mat = input.split("\n").map((line) => line.split(""));
@@ -33,7 +30,6 @@ const isSymbol = (char) => {
       }
     }
   }
-  console.log(result);
   return result;
 })(input);
 
@@ -70,7 +66,6 @@ function helper(mat, i, j, rightLimit, downLimit) {
 
   while (mat[i][rightBound] !== "." && rightBound < rightLimit) {
     rightBound++;
-    console.log(mat[i][rightBound]);
   }
   while (
     i < downLimit &&
@@ -113,7 +108,6 @@ function helper(mat, i, j, rightLimit, downLimit) {
   });
 
   const finalArr = [upArr, currArr, downArr].flat();
-  console.log(finalArr);
 
   if (finalArr.length === 2) return finalArr[0] * finalArr[1];
 

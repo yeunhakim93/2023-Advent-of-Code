@@ -58,7 +58,6 @@ const input = fs.readFileSync("inputs/day8_input.txt", "utf8");
   return result;
 })(input);
 
-console.log(getFactors(21883));
 function getFactors(num) {
   if (num === 1) return [];
   let div = num - 1;

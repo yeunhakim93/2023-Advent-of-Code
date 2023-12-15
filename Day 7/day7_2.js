@@ -70,13 +70,11 @@ const strengthObj = {
         // j: 1, x: 2, y: 2
         //act as fullhouse
         if (cardsObj.J === 1) {
-          console.log("cards full", cards);
           types.full.push(cards);
         }
         // j: 2, x: 2, y: 1
         // act as 4
         else if (cardsObj.J === 2) {
-          console.log("cards four", cards);
           types.four.push(cards);
         }
       } else types.two.push(cards);
@@ -101,10 +99,8 @@ const strengthObj = {
         else if (strengthObj[a[i]] < strengthObj[b[i]]) return -1;
       }
     });
-    console.log("====", key, "====");
     types[key].forEach((cardStr) => {
       result += mapBid[cardStr] * rank;
-      console.log(cardStr, rank, mapBid[cardStr], mapBid[cardStr] * rank);
       rank++;
     });
   }

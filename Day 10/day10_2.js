@@ -194,7 +194,7 @@ const input = fs.readFileSync("inputs/day10_input.txt", "utf8");
     }
   }
 
-  console.log(map.map((line) => line.join("")).join("\n"));
+  // console.log(map.map((line) => line.join("")).join("\n"));
   console.log("=====");
   console.log(result);
   return result;

@@ -33,6 +33,9 @@ const input = fs.readFileSync("inputs/day4_input.txt", "utf8");
   cards.forEach((num) => {
     result += num;
   });
-  console.log(result - 1);
+  result--;
+
+  console.log("====");
+  console.log(result);
   return result;
 })(input);

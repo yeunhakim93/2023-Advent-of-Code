@@ -60,9 +60,6 @@ const input = fs.readFileSync("inputs/day13_input.txt", "utf8");
       }
     }
 
-    console.log("verticalMirrors", verticalMirrors);
-    console.log("horizontalMirrors", horizontalMirrors);
-    console.log("=======");
     verticalMirrors.forEach((col) => {
       result += col;
     });

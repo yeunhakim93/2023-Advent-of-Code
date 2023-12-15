@@ -77,22 +77,16 @@ const input = fs.readFileSync("inputs/day5_input.txt", "utf8");
           parseInt(rangeStr),
         ];
         for (key in fertToWaterObj) {
-          console.log("HI THIS IS FROM FERTILIZER", key, src, dest, range);
           if (key >= src && key < src + range) {
-            console.log("WITHIN RANGE!");
             if (src < dest) {
               fertToWaterObj[key] = fertToWaterObj[key] + (dest - src);
-              console.log("111111");
             } else {
               fertToWaterObj[key] = fertToWaterObj[key] - (src - dest);
-              console.log("222222");
             }
           }
-          console.log("AFTER THIS", fertToWaterObj);
         }
         i++;
       }
-      console.log("FERTOBJ", fertToWaterObj);
       for (key in fertToWaterObj) {
         const value = fertToWaterObj[key];
         waterToLightObj[value] = parseInt(value);
@@ -192,16 +186,6 @@ const input = fs.readFileSync("inputs/day5_input.txt", "utf8");
     }
     i++;
   }
-  console.log({
-    seedsToSoilObj,
-    soilToFertObj,
-    fertToWaterObj,
-    waterToLightObj,
-    lightToTempObj,
-    tempToHumObj,
-    humToLocObj,
-  });
-
   for (seed in seedsToSoilObj) {
     const soil = seedsToSoilObj[seed] || seed;
     const fert = soilToFertObj[soil] || soil;
@@ -211,7 +195,6 @@ const input = fs.readFileSync("inputs/day5_input.txt", "utf8");
     const hum = tempToHumObj[temp] || temp;
     const loc = humToLocObj[hum] || hum;
 
-    console.log(seed, loc);
     if (!result || loc < result) result = loc;
   }
 

@@ -18,7 +18,6 @@ const input = fs.readFileSync("inputs/day12_input.txt", "utf8");
     const permutations = {};
 
     function permute(prev) {
-      // console.log("prev", prev);
       if (prev.length === length) permutations[prev] = true;
       switch (unfoldedStr[prev.length]) {
         case "?":

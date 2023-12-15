@@ -18,11 +18,8 @@ let blueMax = 14;
       let checker = true;
       cubes.forEach((cube) => {
         if (cube.match(/red/) && parseInt(cube) > redMax) checker = false;
-        // console.log('2');
         if (cube.match(/green/) && parseInt(cube) > greenMax) checker = false;
-        // console.log('3');
         if (cube.match(/blue/) && parseInt(cube) > blueMax) checker = false;
-        // console.log('4');
       });
       if (checker) isPossible += 1;
     }

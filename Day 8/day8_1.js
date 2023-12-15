@@ -27,7 +27,6 @@ const input = fs.readFileSync("inputs/day8_input.txt", "utf8");
     if (i === directions.length - 1) i = -1;
   }
 
-  console.log(dirMap);
   console.log("====");
   console.log(result);
   return result;
